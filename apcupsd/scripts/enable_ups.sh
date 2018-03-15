@@ -1,10 +1,12 @@
 #!/bin/bash
 
-#conf_files="/etc/apcupsd/apcupsd-*"
+conf_files="/etc/apcupsd/apcupsd-*.conf"
 
+if [ -f $conf_file ]
+then
 printf "{\"data\":["
 
-for conf_file in /etc/apcupsd/apcupsd-*
+for conf_file in $conf_files
 do
 
 ups_serial_number=$(printf ${conf_file%.conf}| grep -E -o '[^-]+$')
@@ -15,3 +17,5 @@ var=","
 done
 printf "]}"
 
+fi
+exit 0
