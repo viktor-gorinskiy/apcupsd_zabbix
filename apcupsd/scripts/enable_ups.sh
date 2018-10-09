@@ -8,7 +8,6 @@ printf "{\"data\":["
 
 for conf_file in $conf_files
 do
-
 ups_serial_number=$(printf ${conf_file%.conf}| grep -E -o '[^-]+$')
 
 printf $var"{\"{#UPS}\":\"$ups_serial_number\"}"
@@ -19,3 +18,4 @@ printf "]}"
 
 fi
 exit 0
+
