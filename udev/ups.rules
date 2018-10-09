@@ -1,3 +1,3 @@
 # UPS
-KERNEL=="hiddev*", ATTRS{manufacturer}=="PPC", ATTRS{product}=="HID UPS", OWNER="root", RUN+="/bin/bash /etc/apcupsd/scripts/run_ups.sh %k $attr{serial}"
-#KERNEL=="hiddev*", ATTRS{manufacturer}=="PPC", ATTRS{product}=="HID UPS", OWNER="root", SYMLINK+="usb/$attr{serial}"
+KERNEL=="hiddev*", ATTRS{idVendor}=="06da", ATTRS{idProduct}=="ffff", ATTRS{serial}=="SERIAL_1", SYMLINK+="usb/UPS/SERIAL_1"
+KERNEL=="hiddev*", ATTRS{idVendor}=="06da", ATTRS{idProduct}=="ffff", ATTRS{serial}=="SERIAL_2", SYMLINK+="usb/UPS/SERIAL_2"
