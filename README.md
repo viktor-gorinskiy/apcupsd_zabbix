@@ -1,2 +1,5 @@
 # apcupsd_zabbix
-Автообнаружение в zabbix UPS помощью BASH скриптов, UDEV и их мониторинг через apcupsd
+Мониторинг UPS
+udevadm info --name=/dev/usb/hiddev0 --attribute-walk
+udevadm info --name=/dev/usb/hiddev1 --attribute-walk
+vim /etc/udev/rules.d/ups.rules
