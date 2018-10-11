@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2018-10-09T11:41:11Z</date>
+    <date>2018-10-11T08:03:07Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -99,6 +99,48 @@
                             <master_item_prototype/>
                         </item_prototype>
                         <item_prototype>
+                            <name>Дата последнего обновления лог файла {#UPS}</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>system.run[/usr/bin/awk '/END APC/{print $4$5}' {$LOGS_DIR}{#UPS}.log|/usr/bin/tr -cd '0-9']</key>
+                            <delay>30</delay>
+                            <history>7d</history>
+                            <trends>7d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>APCUPSd</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
                             <name>Верхняя граница допустимого напряжения до перехода на батареи. {#UPS}</name>
                             <type>0</type>
                             <snmp_community/>
@@ -107,7 +149,7 @@
                             <delay>30</delay>
                             <history>30d</history>
                             <trends>120d</trends>
-                            <status>0</status>
+                            <status>1</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units>volt</units>
@@ -225,6 +267,48 @@
                             <master_item_prototype/>
                         </item_prototype>
                         <item_prototype>
+                            <name>Нижняя граница допустимого напряжения до перехода на батареи. {#UPS}</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>system.run[/usr/bin/awk '/LOTRANS/{print$3}' {$LOGS_DIR}{#UPS}.log]</key>
+                            <delay>30</delay>
+                            <history>30d</history>
+                            <trends>120d</trends>
+                            <status>1</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>volt</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>APCUPSd</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
                             <name>Максимальная мощность {#UPS}</name>
                             <type>0</type>
                             <snmp_community/>
@@ -237,6 +321,48 @@
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units>Watts</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>APCUPSd</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Количество переходов на питание от батареи {#UPS} с момента запуска APCUPSd.</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>system.run[/usr/bin/awk '/NUMXFERS/{print $3}' {$LOGS_DIR}{#UPS}.log]</key>
+                            <delay>30</delay>
+                            <history>30d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -314,7 +440,7 @@
                             <snmp_community/>
                             <snmp_oid/>
                             <key>system.run[/usr/bin/awk '/SELFTEST/{print $3}' {$LOGS_DIR}{#UPS}.log]</key>
-                            <delay>3600</delay>
+                            <delay>60</delay>
                             <history>30d</history>
                             <trends>0</trends>
                             <status>0</status>
@@ -435,7 +561,7 @@
                             <master_item_prototype/>
                         </item_prototype>
                         <item_prototype>
-                            <name>Оставшееся время работы от батареи по оценке ИБП {#UPS}.</name>
+                            <name>Оставшееся время работы {#UPS} от батареи по оценке ИБП.</name>
                             <type>0</type>
                             <snmp_community/>
                             <snmp_oid/>
@@ -477,7 +603,49 @@
                             <master_item_prototype/>
                         </item_prototype>
                         <item_prototype>
-                            <name>Имя ИБП</name>
+                            <name>Текущее время работы от батарей  {#UPS}</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>system.run[/usr/bin/awk '/TONBATT/{print $3}' {$LOGS_DIR}{#UPS}.log]</key>
+                            <delay>30</delay>
+                            <history>30d</history>
+                            <trends>120d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>sec</units>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>APCUPSd</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Имя ИБП  {#UPS}</name>
                             <type>0</type>
                             <snmp_community/>
                             <snmp_oid/>
@@ -518,54 +686,196 @@
                             <application_prototypes/>
                             <master_item_prototype/>
                         </item_prototype>
+                        <item_prototype>
+                            <name>Дата, время последнего перехода на работу от батарей  {#UPS}.</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>system.run[/usr/bin/awk '/XONBATT/{print $3$4}' {$LOGS_DIR}{#UPS}.log]</key>
+                            <delay>30</delay>
+                            <history>30d</history>
+                            <trends>0</trends>
+                            <status>0</status>
+                            <value_type>4</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>APCUPSd</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <application_prototypes/>
+                            <master_item_prototype/>
+                        </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template APCUPSd:system.run[/usr/bin/awk '/STATUS/{print $3 $4 $5}' {$LOGS_DIR}{#UPS}.log].regexp(NOBATT)}=1</expression>
+                            <expression>{Template APCUPSd:system.run[/usr/bin/awk '/END APC/{print $4$5}' {$LOGS_DIR}{#UPS}.log|/usr/bin/tr -cd '0-9'].change()}=0</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
-                            <name>Батареи отсутствуют</name>
+                            <name>Not now data {#UPS}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template APCUPSd:system.run[/usr/bin/awk '/SELFTEST/{print $3}' {$LOGS_DIR}{#UPS}.log].regexp(NG)}=1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>{#UPS} не прошёл тест из-за перегрузки</name>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description>Нужно подключить батареи</description>
-                            <type>1</type>
+                            <type>0</type>
                             <manual_close>0</manual_close>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>Not now data {#UPS}</name>
+                                    <expression>{Template APCUPSd:system.run[/usr/bin/awk '/END APC/{print $4$5}' {$LOGS_DIR}{#UPS}.log|/usr/bin/tr -cd '0-9'].change()}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template APCUPSd:system.run[/usr/bin/awk '/SELFTEST/{print $3}' {$LOGS_DIR}{#UPS}.log].regexp(BT)}=1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>{#UPS} не прошёл тест из-за тест из-за недостаточной ёмкости батарей</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>4</priority>
+                            <description>Нужно подключить батареи</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies>
+                                <dependency>
+                                    <name>Not now data {#UPS}</name>
+                                    <expression>{Template APCUPSd:system.run[/usr/bin/awk '/END APC/{print $4$5}' {$LOGS_DIR}{#UPS}.log|/usr/bin/tr -cd '0-9'].change()}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template APCUPSd:system.run[/usr/bin/awk '/STATUS/{print $3 $4 $5}' {$LOGS_DIR}{#UPS}.log].regexp(NOBATT)}=1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Батареи отсутствуют у {#UPS}</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>4</priority>
+                            <description>Нужно подключить батареи</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies>
+                                <dependency>
+                                    <name>Not now data {#UPS}</name>
+                                    <expression>{Template APCUPSd:system.run[/usr/bin/awk '/END APC/{print $4$5}' {$LOGS_DIR}{#UPS}.log|/usr/bin/tr -cd '0-9'].change()}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
                             <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{Template APCUPSd:system.run[/usr/bin/awk '/STATUS/{print $3 $4 $5}' {$LOGS_DIR}{#UPS}.log].regexp(REPLACEBATT)}=1</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
-                            <name>Замените батареи</name>
+                            <name>Замените батареи у {#UPS}</name>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description>Нужно заменить батареи</description>
-                            <type>1</type>
+                            <type>0</type>
                             <manual_close>0</manual_close>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>Not now data {#UPS}</name>
+                                    <expression>{Template APCUPSd:system.run[/usr/bin/awk '/END APC/{print $4$5}' {$LOGS_DIR}{#UPS}.log|/usr/bin/tr -cd '0-9'].change()}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
                             <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{Template APCUPSd:system.run[/usr/bin/awk '/STATUS/{print $3 $4 $5}' {$LOGS_DIR}{#UPS}.log].regexp(ONBATT)}=1</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
-                            <name>Работа от батарей</name>
+                            <name>Работа от батарей на {#UPS}</name>
                             <correlation_mode>0</correlation_mode>
                             <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
                             <description>ИБП работет от батарей</description>
-                            <type>1</type>
+                            <type>0</type>
                             <manual_close>0</manual_close>
-                            <dependencies/>
+                            <dependencies>
+                                <dependency>
+                                    <name>Not now data {#UPS}</name>
+                                    <expression>{Template APCUPSd:system.run[/usr/bin/awk '/END APC/{print $4$5}' {$LOGS_DIR}{#UPS}.log|/usr/bin/tr -cd '0-9'].change()}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template APCUPSd:system.run[/usr/bin/awk '/SELFTEST/{print $3}' {$LOGS_DIR}{#UPS}.log].regexp(NO)}=1</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>У {#UPS} нет данных теста самодиагностики!</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description>Нужно подключить батареи</description>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies>
+                                <dependency>
+                                    <name>Not now data {#UPS}</name>
+                                    <expression>{Template APCUPSd:system.run[/usr/bin/awk '/END APC/{print $4$5}' {$LOGS_DIR}{#UPS}.log|/usr/bin/tr -cd '0-9'].change()}=0</expression>
+                                    <recovery_expression/>
+                                </dependency>
+                            </dependencies>
                             <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
